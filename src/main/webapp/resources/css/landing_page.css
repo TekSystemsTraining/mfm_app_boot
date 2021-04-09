@@ -1,0 +1,41 @@
+@import "nav.css";
+
+body {
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	height:100vh;
+}
+.overlay {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(244, 244, 244, 0.79);
+}
+
+
+.description {
+	position: absolute;
+	top: 30%;
+	margin: auto;
+	padding: 2em;
+}
+
+.description h1 {
+	color: #f97300;
+}
+
+.description p {
+	color: #666;
+	font-size: 20px;
+	width: 50%;
+	line-height: 1.5;
+}
+
+.description button {
+	border: 1px solid #f97300;
+	background: #f97300;
+	color: #fff;
+}

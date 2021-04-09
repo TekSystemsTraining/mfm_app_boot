@@ -1,0 +1,28 @@
+@import "nav.css";
+.description {
+  position: absolute;
+  top: 30%;
+  margin: auto;
+  padding: 2em;
+}
+
+.description p {
+  color: #666;
+  font-size: 20px;
+  width: 50%;
+  line-height: 1.5;
+}
+.description button {
+  border: 1px solid #f97300;
+  background: #f97300;
+  color: #fff;
+}
+.total_button {
+	margin-top: 15px
+}
+.workout_submit{
+	margin-top: 40px
+}
+.exercise-container{
+	margin-top: 75px
+}
