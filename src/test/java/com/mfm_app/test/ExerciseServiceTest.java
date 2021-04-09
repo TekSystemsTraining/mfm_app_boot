@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mfm_app.entities.Exercise;
 import com.mfm_app.services.ExerciseService;
@@ -41,18 +42,19 @@ class ExerciseServiceTest {
 	}
 
 	@Test
-	void testGetAllExercises() {
+	void test_get_all_exercises() {
 		String[] exercises = es.get_all_exercises();
 		List<String> list = new ArrayList<>(Arrays.asList(exercises));
-		String expectedName = "bench press";
+		String expected_name = "bench press";
 		
-		assertTrue(list.contains(expectedName));
+		assertTrue(list.contains(expected_name));
 	}
 	
 	@Test
-	void testAddExercise() {
+	@Transactional
+	void test_add_exercise() {
 		Exercise ex = new Exercise();
-		String expectedName = "jumping jack";
+		String expected_name = "jumping jack";
 		ex.setName("jumping jack");
 		ex.setPrimary_bodypart("legs");
 		ex.setSecondary_bodypart("shoulders");
@@ -61,7 +63,7 @@ class ExerciseServiceTest {
 		String[] exercises = es.get_all_exercises();
 		List<String> list = new ArrayList<>(Arrays.asList(exercises));
 		
-		assertTrue(list.contains(expectedName));			
+		assertTrue(list.contains(expected_name));			
 		
 	}
 
