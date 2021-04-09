@@ -9,10 +9,10 @@ Java, BootStrap, SpringJPA, Spring Boot, JUNIT and the IDE used throughout was E
 ## Getting Started
 
 ## Main User stories
-*As a new user I need to be able to register and have access to the tracking aspects of the application.
-*As a user I need to be able to add new workouts as I complete them and see my past workouts and totals. 
-*As a user I would like to be able to add new exercises to the available list in the workout form.
-*As a user I may need to delete previous workouts. I should be able to do that and have my profile still exist correctly.
+-As a new user I need to be able to register and have access to the tracking aspects of the application.
+-As a user I need to be able to add new workouts as I complete them and see my past workouts and totals. 
+-As a user I would like to be able to add new exercises to the available list in the workout form.
+-As a user I may need to delete previous workouts. I should be able to do that and have my profile still exist correctly.
 
 ## Documentation
 
