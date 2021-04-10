@@ -14,7 +14,8 @@ Java, BootStrap, SpringJPA, Spring Boot, JUNIT and the IDE used throughout was E
 
 ## Documentation
 
-[Slide deck](https://docs.google.com/presentation/d/1L51mKq_fa_inq1LfV7OJ26C56BQcqK3jeDQFD4AFoUg/edit?usp=sharing) with User stories and database relationships. 
+[Slide deck](https://docs.google.com/presentation/d/1L51mKq_fa_inq1LfV7OJ26C56BQcqK3jeDQFD4AFoUg/edit?usp=sharing) with User stories and database relationships. Slide deck also in pdf form in the project.
+Database creation sql included with the project.
 
 ## Authors
 
