@@ -1,5 +1,6 @@
 package com.mfm_app.services;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +13,13 @@ public class WorkoutService {
 	@Autowired
 	WorkoutRepository wr;
 
-	public Long add_workout(Workout workout) {
-		Long return_value = 0L;
+	public Workout add_workout(Workout workout) {
+		Workout return_value = null;
 
 		try {
 			wr.save(workout);
-			return_value = workout.getId();
-			System.out.println("Workout Id after save: " + return_value);
+			return_value = workout;
+			System.out.println("Workout after save: " + return_value);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

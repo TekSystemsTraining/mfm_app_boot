@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -27,8 +29,7 @@ public class User {
 	@Column(name = "total_weight_lifted")
 	private Double total_weight_lifted =0.0;
 
-	@Column(name = "workouts_completed")
-	@OneToMany(targetEntity = Workout.class)
+	@OneToMany(targetEntity = Workout.class, fetch= FetchType.EAGER)
 	private List<Workout> workouts_completed = new ArrayList<>();
 
 	@Column(name = "primary_bodypart_array")

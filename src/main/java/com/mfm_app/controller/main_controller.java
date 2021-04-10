@@ -3,6 +3,7 @@ package com.mfm_app.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mfm_app.entities.Exercise;
-import com.mfm_app.entities.PrimaryBodypartList;
-import com.mfm_app.entities.SecondaryBodypartList;
 import com.mfm_app.entities.User;
 import com.mfm_app.entities.Workout;
 import com.mfm_app.services.ExerciseService;
@@ -96,10 +95,11 @@ public class main_controller {
 			@RequestParam String exercise_one_completed, @RequestParam String exercise_two_completed,
 			@RequestParam String exercise_three_completed) {
 		Workout new_workout = new Workout();
-		Long saved_workout;
+		Workout saved_workout;
 		User updated_user;
 		// setting all variables
 		new_workout.setDate_of_workout(new Date());
+		new_workout.setId(new Random().nextLong());
 		new_workout.setTotal_weight_lifted(workout.getTotal_weight_lifted());
 		new_workout.setExercise_one_completed(exercise_one_completed);
 		new_workout.setExercise_two_completed(exercise_two_completed);
@@ -108,7 +108,7 @@ public class main_controller {
 		// adding the workout to the workout table
 		saved_workout = workout_service.add_workout(new_workout);
 		// saving the workout to the current users list of workouts
-		updated_user = user_service.update_user_increase((User) request.getSession().getAttribute("user"),
+		updated_user = user_service.update_user_increase(current_user,
 				saved_workout);
 		request.getSession().setAttribute("user", updated_user);
 		// route back to the profile_page after saving
@@ -118,7 +118,7 @@ public class main_controller {
 	@RequestMapping(value = "/delete_workout/{id}")
 	public String delete_workout(@PathVariable("id") Long delete_id, HttpServletRequest request) {
 		// remove the id from the list of workouts the user has
-		User updated_user = user_service.update_user_decrease((User) request.getSession().getAttribute("user"),
+		User updated_user = user_service.update_user_decrease(current_user,
 				delete_id);
 		// delete the workout from the workout table
 		Boolean delete_result = workout_service.delete_workout(delete_id);
@@ -165,7 +165,7 @@ public class main_controller {
 		}
 
 		request.getSession().setAttribute("user", valid_user);
-		current_user = "logged-in";
+		current_user = valid_user.getUsername();
 		return "redirect:/profile_page";
 	}
 
@@ -188,7 +188,7 @@ public class main_controller {
 			mav.addObject("user", login_user);
 			request.getSession().setAttribute("user", login_user);
 			request.getSession().setAttribute("error", "");
-			current_user = "logged-in";
+			current_user = login_user.getUsername();
 			return profile_page(request);
 		}
 	}

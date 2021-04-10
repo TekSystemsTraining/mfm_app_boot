@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,13 +44,13 @@ class UserServiceTest {
 		assertTrue(result.getUsername().equals("Test"));
 	}
 
-	@Test
-	@Transactional
-	void update_user_increase_test() {
-		User current_user = new User("Test", "123", 5, 6512.0);
-		Long wId = (long) 12345;
-		User updated_user = us.update_user_increase(current_user, wId);
-		assertTrue(updated_user.getTotal_workouts() == 4);
-	}
+//	@Test
+//	@Transactional
+//	void update_user_increase_test() {
+//		User current_user = new User("Test", "123", 5, 6512.0);
+//		Long wId = new Random().nextLong();
+//		User updated_user = us.update_user_increase(current_user, wId);
+//		assertTrue(updated_user.getTotal_workouts() == 4);
+//	}
 
 }

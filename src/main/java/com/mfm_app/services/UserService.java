@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,24 +48,30 @@ public class UserService {
 
 	}
 
-	public User update_user_increase(User user, Long wId) {
-		Workout update_workout = workout_service.get_workout_by_id(wId);
-		System.out.println("=============" + update_workout);
-		user.getWorkouts_completed().add(update_workout);
-		user.increase_total_weight_lifted(update_workout.getTotal_weight_lifted());
-		user.increase_total_workouts();
-		ur.save(user);
-		return user;
+	public User update_user_increase(String username, Workout workout) {
+		System.out.println("=============" + workout);
+		User update_user = ur.getUserByUsername(username);
+		List<Workout> list_update = update_user.getWorkouts_completed();
+		list_update.add(workout);
+		update_user.setWorkouts_completed(list_update);
+		update_user.increase_total_weight_lifted(workout.getTotal_weight_lifted());
+		update_user.increase_total_workouts();
+		ur.save(update_user);
+		return update_user;
 	}
 
-	public User update_user_decrease(User user, Long wId) {
+	public User update_user_decrease(String username, Long wId) {
 		Workout update_workout = workout_service.get_workout_by_id(wId);
-		user.getWorkouts_completed().remove(update_workout);
-		user.decrease_total_weight_lifted(update_workout.getTotal_weight_lifted());
-		user.decrease_total_workouts();
-		ur.save(user);
-		System.out.println("User after deleting: " + user);
-		return user;
+		User update_user = ur.getUserByUsername(username);
+		List<Workout> list_update = update_user.getWorkouts_completed();
+		list_update.remove(update_workout);
+
+		update_user.setWorkouts_completed(list_update);
+		update_user.decrease_total_weight_lifted(update_workout.getTotal_weight_lifted());
+		update_user.decrease_total_workouts();
+		ur.save(update_user);
+		System.out.println("User after deleting: " + update_user);
+		return update_user;
 	}
 
 	public List<User> get_all_users() {
