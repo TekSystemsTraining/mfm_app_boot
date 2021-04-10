@@ -56,13 +56,14 @@ public class UserService {
 		ur.save(user);
 		return user;
 	}
-	
+
 	public User update_user_decrease(User user, Long wId) {
 		Workout update_workout = workout_service.get_workout_by_id(wId);
 		user.getWorkouts_completed().remove(update_workout);
 		user.decrease_total_weight_lifted(update_workout.getTotal_weight_lifted());
 		user.decrease_total_workouts();
 		ur.save(user);
+		System.out.println("User after deleting: " + user);
 		return user;
 	}
 
@@ -83,7 +84,7 @@ public class UserService {
 				return o2.getDate_of_workout().compareTo(o1.getDate_of_workout());
 			}
 		});
-		
+
 		return all_workouts;
 	}
 

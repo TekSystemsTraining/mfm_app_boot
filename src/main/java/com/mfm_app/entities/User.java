@@ -49,7 +49,7 @@ public class User {
 		this.total_workouts = total_workouts;
 		this.total_weight_lifted = total_weight_lifted;
 		this.primary_bodypart_array = new ArrayList<Integer>();
-
+		this.secondary_bodypart_array = new ArrayList<Integer>();
 		populate_arraylists();
 
 

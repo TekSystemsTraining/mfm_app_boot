@@ -29,9 +29,26 @@ class UserServiceTest {
 //		List<User> users = new ArrayList<>();
 //		users = us.get_all_users();
 //		String expected_name = "adam";
-		
-		assertThat(us.get_all_users(), contains(
-				hasProperty("username", is("adam"))));
+
+		assertThat(us.get_all_users(), contains(hasProperty("username", is("adam"))));
+	}
+
+	@Test
+	@Transactional
+	void add_user_test() {
+		User add_user = new User("Test", "123", 5, 6512.0);
+		User result = us.add_user(add_user);
+
+		assertTrue(result.getUsername().equals("Test"));
+	}
+
+	@Test
+	@Transactional
+	void update_user_increase_test() {
+		User current_user = new User("Test", "123", 5, 6512.0);
+		Long wId = (long) 12345;
+		User updated_user = us.update_user_increase(current_user, wId);
+		assertTrue(updated_user.getTotal_workouts() == 4);
 	}
 
 }
