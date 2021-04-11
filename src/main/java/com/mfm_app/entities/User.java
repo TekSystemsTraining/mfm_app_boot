@@ -32,11 +32,6 @@ public class User {
 	@OneToMany(targetEntity = Workout.class, fetch= FetchType.EAGER)
 	private List<Workout> workouts_completed = new ArrayList<>();
 
-	@Column(name = "primary_bodypart_array")
-	private ArrayList<Integer> primary_bodypart_array;
-	
-	@Column(name = "secondary_bodypart_array")
-	private ArrayList<Integer> secondary_bodypart_array;
 
 	public User() {
 		super();
@@ -49,21 +44,9 @@ public class User {
 		this.password = password;
 		this.total_workouts = total_workouts;
 		this.total_weight_lifted = total_weight_lifted;
-		this.primary_bodypart_array = new ArrayList<Integer>();
-		this.secondary_bodypart_array = new ArrayList<Integer>();
-		populate_arraylists();
 
 
-	}
 
-	private void populate_arraylists() {
-		primary_bodypart_array.add(0, 0);
-		primary_bodypart_array.add(1, 0);
-		primary_bodypart_array.add(2, 0);
-		secondary_bodypart_array.add(0, 0);
-		secondary_bodypart_array.add(1, 0);
-		secondary_bodypart_array.add(2, 0);
-		secondary_bodypart_array.add(3, 0);
 	}
 
 	public List<Workout> getWorkouts_completed() {
@@ -74,21 +57,6 @@ public class User {
 		this.workouts_completed = workouts_completed;
 	}
 
-	public ArrayList<Integer> getPrimary_bodypart_array() {
-		return primary_bodypart_array;
-	}
-
-	public void setPrimary_bodypart_array(ArrayList<Integer> primary_bodypart_array) {
-		this.primary_bodypart_array = primary_bodypart_array;
-	}
-
-	public ArrayList<Integer> getSecondary_bodypart_array() {
-		return secondary_bodypart_array;
-	}
-
-	public void setSecondary_bodypart_array(ArrayList<Integer> secondary_bodypart_array) {
-		this.secondary_bodypart_array = secondary_bodypart_array;
-	}
 
 	public String getUsername() {
 		return username;
@@ -143,6 +111,7 @@ public class User {
 		result = prime * result + ((total_weight_lifted == null) ? 0 : total_weight_lifted.hashCode());
 		result = prime * result + total_workouts;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		result = prime * result + ((workouts_completed == null) ? 0 : workouts_completed.hashCode());
 		return result;
 	}
 
@@ -172,13 +141,19 @@ public class User {
 				return false;
 		} else if (!username.equals(other.username))
 			return false;
+		if (workouts_completed == null) {
+			if (other.workouts_completed != null)
+				return false;
+		} else if (!workouts_completed.equals(other.workouts_completed))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", total_workouts=" + total_workouts
-				+ ", total_weight_lifted=" + total_weight_lifted + "]";
+				+ ", total_weight_lifted=" + total_weight_lifted + ", workouts_completed=" + workouts_completed + "]";
 	}
 
+	
 }

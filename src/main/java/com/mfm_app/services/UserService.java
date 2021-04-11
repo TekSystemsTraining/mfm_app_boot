@@ -95,10 +95,5 @@ public class UserService {
 		return all_workouts;
 	}
 
-	public boolean update_user_bodyparts(List<String> exercises) {
-		Boolean return_value = false;
-
-		return return_value;
-	}
 
 }
