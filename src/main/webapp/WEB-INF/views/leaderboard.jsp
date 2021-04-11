@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
@@ -28,14 +28,20 @@
 			<div class="bigwords">
 				<h1>Leaderboard</h1>
 			</div>
-			
+
 			<div class="container">
 				<h2 style="text-align: center">Top 10 Lifters</h2>
 				<div class="row">
-					<label class="col-sm">Place</label><label class="col">Name</label> <label class="col">Total Lifted</label> <label class="col">Total Workouts</label>
+					<label class="col-sm">Place</label><label class="col">Name</label>
+					<label class="col">Total Lifted</label> <label class="col">Total
+						Workouts</label>
 				</div>
 				<c:forEach items="${all_users}" var="u" varStatus="loop">
-					<div class=row>
+					<div class="row"
+						<c:if test="${u.username == user.username }">
+							id="highlighted"
+						</c:if>>
+
 						<div class="col-sm">
 							<h4>${loop.index + 1}</h4>
 						</div>
@@ -43,7 +49,7 @@
 						<div class="col-sm">${u.total_weight_lifted}</div>
 						<div class="col-sm">${u.total_workouts}</div>
 					</div>
-				</c:forEach>				
+				</c:forEach>
 			</div>
 		</div>
 	</div>

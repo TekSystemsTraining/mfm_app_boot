@@ -7,7 +7,11 @@ function total_exercise(section, grandTotal) {
 
 	for (i = 1; i <= 4; i++) {
 		var section_prefix = section + "-" + i;
-		if (
+		if(document.getElementById(section_prefix + "-1").value <0 ||
+			document.getElementById(section_prefix + "-2").value <0){
+			alert("cannot have negative values, please try again");
+		    break;
+		}else if (
 			document.getElementById(section_prefix + "-1") == null ||
 			document.getElementById(section_prefix + "-2") == null
 		) {

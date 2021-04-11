@@ -1,2 +1,6 @@
 @charset "ISO-8859-1";
 @import "nav.css";
+
+#highlighted{
+	background-color: #f97300;
+}
