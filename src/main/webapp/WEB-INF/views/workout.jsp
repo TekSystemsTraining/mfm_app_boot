@@ -54,38 +54,38 @@
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-1-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-1-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-1-3" disabled />
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-2-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-2-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-2-3" disabled />
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-3-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-3-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-3-3" disabled />
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-4-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-4-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="1-4-3" disabled />
 							</div>
 							<div class="d-flex justify-content-between total_button">
@@ -119,38 +119,38 @@
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-1-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-1-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-1-3" disabled />
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-2-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-2-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-2-3" disabled />
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-3-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-3-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-3-3" disabled />
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-4-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-4-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="2-4-3" disabled />
 							</div>
 							<div class="d-flex justify-content-between total_button">
@@ -184,38 +184,38 @@
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-1-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-1-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-1-3" disabled />
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-2-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-2-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-2-3" disabled />
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-3-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-3-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-3-3" disabled />
 							</div>
 							<div class="row">
 								<input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-4-1" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-4-2" /> <input type="number"
-									onkeyup="if(this.value<0){this.value= this.value * -1}"
+									onkeyup="if(this.value<0){this.value= this.value * -1}" min="0"
 									class="col-sm" id="3-4-3" disabled />
 							</div>
 							<div class="d-flex justify-content-between total_button">
