@@ -24,6 +24,9 @@ public class UserService {
 
 	public User add_user(User user) {
 
+		if(ur.getUserByUsername(user.getUsername()) != null) {
+			return null;
+		}
 		try {
 			ur.save(user);
 		} catch (Exception e) {

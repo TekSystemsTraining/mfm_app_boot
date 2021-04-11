@@ -67,6 +67,7 @@ public class main_controller {
 	@RequestMapping("/profile_page")
 	public ModelAndView profile_page(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("profile_page");
+		//checking to see if there is a current user logged in, if not the jsp redirects with error.
 		if (!current_user.equals("")) {
 			// get the list of all workouts to be displayed on the page
 			User current = (User) request.getSession().getAttribute("user");
@@ -151,9 +152,11 @@ public class main_controller {
 
 	@RequestMapping("/registerUser")
 	public String registerUser(@ModelAttribute User user, HttpServletRequest request) {
+		//clear any errors after printing them
 		request.getSession().setAttribute("error", "");
 		User register_user = new User();
 		User valid_user = new User();
+		//check username and password for allowed values
 		if (user.getUsername().length() <= 2) {
 			request.getSession().setAttribute("error", "Username must be at least 3 characters");
 			return "redirect:/register";
@@ -164,14 +167,14 @@ public class main_controller {
 		}
 		register_user.setUsername(user.getUsername());
 		register_user.setPassword(user.getPassword());
-
-		try {
-			valid_user = user_service.add_user(register_user);
-
-		} catch (Exception e) {
-			e.printStackTrace();
+		//attempt to save new user
+		valid_user = user_service.add_user(register_user);
+		
+		//if this returns null the service found a user by that name
+		if(valid_user == null) {
+			request.getSession().setAttribute("error", "Username already exists. Please try again");
+			return "redirect:/register";
 		}
-
 		request.getSession().setAttribute("user", valid_user);
 		current_user = valid_user.getUsername();
 		return "redirect:/profile_page";
