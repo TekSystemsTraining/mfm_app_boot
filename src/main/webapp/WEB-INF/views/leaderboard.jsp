@@ -45,9 +45,9 @@
 						<div class="col-sm">
 							<h4>${loop.index + 1}</h4>
 						</div>
-						<div class="col-sm">${u.username}</div>
-						<div class="col-sm">${u.total_weight_lifted}</div>
-						<div class="col-sm">${u.total_workouts}</div>
+						<div class="col-sm"><h6>${u.username}</h6></div>
+						<div class="col-sm"><h6>${u.total_weight_lifted}</h6></div>
+						<div class="col-sm"><h6>${u.total_workouts}</h6></div>
 					</div>
 				</c:forEach>
 			</div>

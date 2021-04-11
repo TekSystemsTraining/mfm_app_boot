@@ -40,20 +40,18 @@
 									class="form-control">
 							</div>
 							<div class="form-group">
-								<label for="confirm_password" class="second_color">Confirm
-									Password:</label><br> <input type="password" name="confirm_password"
-									id="confirm_password" class="form-control">
-							</div>
-							<div class="form-group">
 								<br> <input type="submit" name="submit"
 									class="btn btn-outline-secondary btn-md" value="submit">
 							</div>
 
 						</form>
+						<h5>${error}</h5>
 					</div>
 				</div>
+				
 			</div>
 		</div>
+		
 	</div>
 </body>
 </html>

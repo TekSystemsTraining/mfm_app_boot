@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -108,8 +110,7 @@ public class main_controller {
 		// adding the workout to the workout table
 		saved_workout = workout_service.add_workout(new_workout);
 		// saving the workout to the current users list of workouts
-		updated_user = user_service.update_user_increase(current_user,
-				saved_workout);
+		updated_user = user_service.update_user_increase(current_user, saved_workout);
 		request.getSession().setAttribute("user", updated_user);
 		// route back to the profile_page after saving
 		return "redirect:/profile_page";
@@ -118,8 +119,7 @@ public class main_controller {
 	@RequestMapping(value = "/delete_workout/{id}")
 	public String delete_workout(@PathVariable("id") Long delete_id, HttpServletRequest request) {
 		// remove the id from the list of workouts the user has
-		User updated_user = user_service.update_user_decrease(current_user,
-				delete_id);
+		User updated_user = user_service.update_user_decrease(current_user, delete_id);
 		// delete the workout from the workout table
 		Boolean delete_result = workout_service.delete_workout(delete_id);
 
@@ -151,9 +151,17 @@ public class main_controller {
 
 	@RequestMapping("/registerUser")
 	public String registerUser(@ModelAttribute User user, HttpServletRequest request) {
-
+		request.getSession().setAttribute("error", "");
 		User register_user = new User();
 		User valid_user = new User();
+		if (user.getUsername().length() <= 2) {
+			request.getSession().setAttribute("error", "Username must be at least 3 characters");
+			return "redirect:/register";
+		} else if (check_values(user) == false) {
+			request.getSession().setAttribute("error",
+					"password must contain one numeric, one lowercase, one uppercase, have a special character and be 8-20 characters long.");
+			return "redirect:/register";
+		}
 		register_user.setUsername(user.getUsername());
 		register_user.setPassword(user.getPassword());
 
@@ -167,6 +175,14 @@ public class main_controller {
 		request.getSession().setAttribute("user", valid_user);
 		current_user = valid_user.getUsername();
 		return "redirect:/profile_page";
+	}
+
+	public Boolean check_values(User user) {
+		String regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!^&*]).{8,20}$";
+
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(user.getPassword());
+		return matcher.matches();
 	}
 
 	@RequestMapping("/verify_login")

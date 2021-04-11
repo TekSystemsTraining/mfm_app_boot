@@ -2,5 +2,6 @@
 @import "nav.css";
 
 #highlighted{
-	background-color: #f97300;
+	background-color: rgb(255, 184, 125);
+	border-radius: 5px;
 }

@@ -25,7 +25,7 @@
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
+                    <div id="login-box" class="col-md-12" style="height: 420px">
                         <form id="login-form" class="form" action="verify_login" method="post">                        
                             <h3 class="text-center second_color">Login</h3>
                             <div class="form-group">
@@ -43,8 +43,9 @@
                                 <a href="register" class="second_color">Register here</a>
                             </div>
                         </form>
+                        <h5>${error}</h5>
                     </div>
-                    <h2>${error}</h2>
+                    
                 </div>
             </div>
         </div>
