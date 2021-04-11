@@ -223,6 +223,7 @@ public class main_controller {
 	@RequestMapping("/add_exercise")
 	public ModelAndView add_exercise(@ModelAttribute("command") Exercise exercise) {
 		ModelAndView mav = new ModelAndView("add_exercise");
+		//check for logged in user. Re
 		if (!current_user.equals("")) {
 			String[] pbody = primary_bodypart_service.get_all_primary();
 			String[] sbody = secondary_bodypart_service.get_all_secondary();
@@ -234,16 +235,19 @@ public class main_controller {
 	}
 
 	@RequestMapping("/save_exercise")
-	public ModelAndView save_exercise(@ModelAttribute Exercise exercise, HttpServletRequest request,
+	public String save_exercise(@ModelAttribute Exercise exercise, HttpServletRequest request,
 			@RequestParam String primary_bodypart, @RequestParam String secondary_bodypart) {
-		ModelAndView mav = new ModelAndView();
 		Exercise new_exercise = new Exercise();
 		new_exercise.setName(exercise.getName());
 		new_exercise.setPrimary_bodypart(primary_bodypart);
 		new_exercise.setSecondary_bodypart(secondary_bodypart);
 		Boolean result = exercise_service.add_exercise(new_exercise);
-		mav.setViewName("profile_page");
-		return mav;
+		if(result) {
+			request.getSession().setAttribute("new_exercise", "Exercise added");
+		}else{
+			request.getSession().setAttribute("new_exercise", "Exercise not added, already exists");
+		}
+		return "redirect:/add_exercise";
 	}
 
 }

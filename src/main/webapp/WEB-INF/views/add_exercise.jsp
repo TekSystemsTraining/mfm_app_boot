@@ -74,6 +74,7 @@
 								</div>
 
 							</form>
+							<h5>${new_exercise}</h5>
 						</div>
 					</div>
 				</div>
