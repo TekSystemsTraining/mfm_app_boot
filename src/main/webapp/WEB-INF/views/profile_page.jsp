@@ -57,7 +57,7 @@
 								</div>
 								<div class="col-sm-9 text-secondary">
 									<c:choose>
-										<c:when test="${ user.total_weight_lifted  == null}">
+										<c:when test="${ user.total_weight_lifted  == 0}">
                     						You haven't logged a workout yet
                     					</c:when>
 										<c:otherwise>
@@ -74,7 +74,7 @@
 								</div>
 								<div class="col-sm-9 text-secondary">
 									<c:choose>
-										<c:when test="${ user.total_workouts  == null}">
+										<c:when test="${ user.total_workouts  == 0}">
                     						You haven't logged a workout yet
                    						 </c:when>
 										<c:otherwise>

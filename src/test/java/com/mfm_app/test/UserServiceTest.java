@@ -27,23 +27,20 @@ class UserServiceTest {
 
 	@Autowired
 	UserService us;
-	
+
 	@Autowired
 	WorkoutService ws;
-	
+
 	@Autowired
 	UserRepository ur;
-	
 
 	User current_user = new User("Test", "123", 5, 6512.0);
 	Long l = 867646951397008260L;
 	Workout w = new Workout(l, new Date(), 3000.0, "", "", "");
-	
-	
 
 	@Test
 	@Order(1)
-	@Transactional	
+	@Transactional
 	void get_all_users_test() {
 //		List<User> users = new ArrayList<>();
 //		users = us.get_all_users();
@@ -55,7 +52,7 @@ class UserServiceTest {
 	@Test
 	@Order(2)
 	@Transactional
-	
+
 	void add_user_test() {
 		User add_user = new User("Test", "123", 5, 6512.0);
 		User result = us.add_user(add_user);
@@ -65,39 +62,46 @@ class UserServiceTest {
 
 	@Test
 	@Order(3)
+	@Transactional
 	void update_user_increase_test() {
-		ws.add_workout(w);	
-		System.out.println("increase id "+ w.getId());
+		ws.add_workout(w);
+		System.out.println("increase id " + w.getId());
 		us.add_user(current_user);
 		User updated_user = us.update_user_increase(current_user.getUsername(), w);
 		assertTrue(updated_user.getTotal_workouts() == 6);
 	}
+
 	@Test
 	@Order(4)
+	@Transactional
 	void get_all_workouts_for_user_test() {
+		ws.add_workout(w);
+		us.add_user(current_user);
+		us.update_user_increase(current_user.getUsername(), w);
 		List<Workout> test_list = us.get_all_workouts_for_user(current_user);
 		System.out.println("test list" + test_list);
-		assertTrue(test_list.size()<0);
+		assertTrue(test_list.size() == 1);
 	}
-	
-	
+
 	@Test
 	@Order(5)
+	@Transactional
 	void update_user_decrease_test() {
-
-		System.out.println("decrease id "+ w.getId());
+		ws.add_workout(w);
+		us.add_user(current_user);
+		us.update_user_increase(current_user.getUsername(), w);
 		User updated_user = us.update_user_decrease(current_user.getUsername(), l);
-		assertTrue(updated_user.getTotal_workouts() == 5);
+		assertTrue(updated_user.getTotal_workouts() == 4);
 	}
-	
+
 	@Test
 	@Order(6)
+	@Transactional
 	void login_user_test() {
+		us.add_user(current_user);
 		User return_user = us.login_user(current_user.getUsername(), current_user.getPassword());
-		
-		assertTrue(return_user.getUsername().equals(current_user.getUsername()));		
-	}
-	
 
+		assertTrue(return_user.getUsername().equals(current_user.getUsername()));
+	}
 
 }

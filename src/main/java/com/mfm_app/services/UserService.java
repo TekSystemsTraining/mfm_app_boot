@@ -24,7 +24,7 @@ public class UserService {
 
 	public User add_user(User user) {
 
-		if(ur.getUserByUsername(user.getUsername()) != null) {
+		if (ur.getUserByUsername(user.getUsername()) != null) {
 			return null;
 		}
 		try {
@@ -68,7 +68,6 @@ public class UserService {
 		User update_user = ur.getUserByUsername(username);
 		List<Workout> list_update = update_user.getWorkouts_completed();
 		list_update.remove(update_workout);
-
 		update_user.setWorkouts_completed(list_update);
 		update_user.decrease_total_weight_lifted(update_workout.getTotal_weight_lifted());
 		update_user.decrease_total_workouts();
@@ -97,6 +96,5 @@ public class UserService {
 
 		return all_workouts;
 	}
-
 
 }

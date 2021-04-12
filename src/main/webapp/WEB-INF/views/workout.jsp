@@ -94,9 +94,7 @@
 										class="btn btn-outline-secondary btn-lg " type="button">View
 										Totals</button>
 								</div>
-								<div>
-									Total:<b id="ex-total-1"></b>
-								</div>
+
 
 							</div>
 						</div>
@@ -158,9 +156,6 @@
 									<button onclick="total_exercise(2,false)"
 										class="btn btn-outline-secondary btn-lg " type="button">View
 										Totals</button>
-								</div>
-								<div>
-									Total:<b id="ex-total-2"></b>
 								</div>
 
 							</div>
@@ -224,9 +219,7 @@
 										class="btn btn-outline-secondary btn-lg " type="button">View
 										Totals</button>
 								</div>
-								<div>
-									Total:<b id="ex-total-3"></b>
-								</div>
+
 
 							</div>
 						</div>
