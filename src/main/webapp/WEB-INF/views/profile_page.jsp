@@ -25,12 +25,12 @@
 <title>My Profile</title>
 </head>
 <body>
-	<% 
-	if (session.getAttribute("user") == null) {		
+	<%
+	if (session.getAttribute("user") == null) {
 		session.setAttribute("error", "Must be logged in to access that page");
 		response.sendRedirect("login");
 	}
-	%>	
+	%>
 	<%@ include file="nav.jsp"%>
 	<div class="bigwords">
 		<h1>My stats</h1>
@@ -74,11 +74,12 @@
 								</div>
 								<div class="col-sm-9 text-secondary">
 									<c:choose>
-										<c:when test="${ user.total_workouts  == 0}">
+										<c:when
+											test="${ user.total_workouts  == 0 || user.total_workouts  == null}">
                     						You haven't logged a workout yet
                    						 </c:when>
 										<c:otherwise>
-                   							 ${user.total_weight_lifted/user.total_workouts }
+                   							 ${Math.round(user.total_weight_lifted/user.total_workouts) }
                     					</c:otherwise>
 									</c:choose>
 								</div>
@@ -92,6 +93,7 @@
 							onclick="location.href='workout'">Start New Workout</button>
 					</div>
 					<div class="card mb-6" style="margin-top: 40px">
+						<h6>${delete}</h6>
 						<form:form action="delete_workout" method="POST">
 							<div class="card-body">
 								<div class="row">

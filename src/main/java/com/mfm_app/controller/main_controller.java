@@ -67,14 +67,13 @@ public class main_controller {
 	@RequestMapping("/profile_page")
 	public ModelAndView profile_page(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("profile_page");
+		request.getSession().setAttribute("delete", "");
 		//checking to see if there is a current user logged in, if not the jsp redirects with error.
 		if (!current_user.equals("")) {
 			// get the list of all workouts to be displayed on the page
 			User current = (User) request.getSession().getAttribute("user");
 			System.out.println("Current user" + current);
 			List<Workout> all_workouts = user_service.get_all_workouts_for_user(current);
-			System.out.println("==============");
-			System.out.println("all workouts" + all_workouts);
 			mav.addObject("all_workouts", all_workouts);
 			mav.addObject("user", current);
 		}
@@ -107,7 +106,7 @@ public class main_controller {
 		new_workout.setExercise_one_completed(exercise_one_completed);
 		new_workout.setExercise_two_completed(exercise_two_completed);
 		new_workout.setExercise_three_completed(exercise_three_completed);
-		System.out.println("Controller new workout:" + new_workout);
+
 		// adding the workout to the workout table
 		saved_workout = workout_service.add_workout(new_workout);
 		// saving the workout to the current users list of workouts
@@ -127,9 +126,10 @@ public class main_controller {
 		// reset the user to the session
 		request.getSession().setAttribute("user", updated_user);
 		if (delete_result) {
-			System.out.println("Successfully deleted workout");
+			request.getSession().setAttribute("delete", "Successfully deleted workout");
 		} else {
-			System.out.println("Couldnt delete workout");
+			request.getSession().setAttribute("delete", "Couldnt delete workout");
+
 		}
 		// route back to the profile_page after deleting
 		return "redirect:/profile_page";
@@ -195,7 +195,6 @@ public class main_controller {
 
 		try {
 			login_user = user_service.login_user(user.getUsername(), user.getPassword());
-			System.out.println("controller user: " + login_user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

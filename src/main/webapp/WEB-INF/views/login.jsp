@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/css/login.css" />
 </head>
+
 <body>
 	<%@ include file="nav.jsp"%>
 	<div id="login">

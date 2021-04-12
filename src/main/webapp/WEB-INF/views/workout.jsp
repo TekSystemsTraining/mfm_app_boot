@@ -18,7 +18,17 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
+<style>
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+</style>
 <title>Workout</title>
 </head>
 <body>
@@ -94,7 +104,9 @@
 										class="btn btn-outline-secondary btn-lg " type="button">View
 										Totals</button>
 								</div>
-
+								<div>
+									<input type="hidden" id="ex-total-1" />
+								</div>
 
 							</div>
 						</div>
@@ -156,6 +168,9 @@
 									<button onclick="total_exercise(2,false)"
 										class="btn btn-outline-secondary btn-lg " type="button">View
 										Totals</button>
+								</div>
+								<div>
+									<input type="hidden" id="ex-total-2" />
 								</div>
 
 							</div>
@@ -219,7 +234,9 @@
 										class="btn btn-outline-secondary btn-lg " type="button">View
 										Totals</button>
 								</div>
-
+								<div>
+									<input type="hidden" id="ex-total-3" />
+								</div>
 
 							</div>
 						</div>
